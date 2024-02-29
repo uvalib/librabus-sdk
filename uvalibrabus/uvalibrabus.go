@@ -37,7 +37,7 @@ type UvaBusEvent interface {
 }
 
 type UvaBus interface {
-	PublishBusEvent(UvaBusEvent) error // publish the specified event
+	PublishEvent(UvaBusEvent) error // publish the specified event
 }
 
 // UvaBusConfig -- our configuration structure

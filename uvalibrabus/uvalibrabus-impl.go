@@ -46,7 +46,7 @@ func newUvaBus(busConfig UvaBusConfig) (UvaBus, error) {
 	return &impl, nil
 }
 
-func (impl uvaBusImpl) PublishBusEvent(event UvaBusEvent) error {
+func (impl uvaBusImpl) PublishEvent(event UvaBusEvent) error {
 
 	// validate inbound parameters
 	if len(event.Type()) == 0 {
