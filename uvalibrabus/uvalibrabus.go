@@ -44,7 +44,7 @@ type UvaBus interface {
 type UvaBusConfig struct {
 	Source  string      // the event source
 	BusName string      // the name of the bus
-	log     *log.Logger // logger if we want to log
+	Log     *log.Logger // logger if we want to log
 }
 
 // NewUvaBus -- factory for our bus interface

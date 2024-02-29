@@ -84,7 +84,7 @@ func (impl uvaBusImpl) PublishEvent(event UvaBusEvent) error {
 //
 
 func (impl uvaBusImpl) logInfo(message string) {
-	if impl.config.log != nil {
+	if impl.config.Log != nil {
 		log.Printf("INFO: %s", message)
 	}
 }
