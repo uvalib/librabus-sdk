@@ -9,6 +9,15 @@ import (
 	"fmt"
 )
 
+// event names published by the easystore service
+var EventObjectCreate = "object.create"     // object created
+var EventObjectUpdate = "object.update"     // object updated
+var EventObjectDelete = "object.delete"     // object deleted
+var EventMetadataUpdate = "metadata.update" // metadata updated
+var EventFileCreate = "file.create"         // file created
+var EventFileUpdate = "file.update"         // file updated
+var EventFileDelete = "file.delete"         // file deleted
+
 // this is our easystore event object implementation
 type uvaEasystoreEvent struct {
 	theType    string // the event type (not serialized)

@@ -15,27 +15,16 @@ var ErrConfig = fmt.Errorf("configuration error")
 var ErrEventSerialize = fmt.Errorf("serialize error")
 var ErrEventPublish = fmt.Errorf("publish error")
 
-//
-// event names and supporting schema
-//
-
 // used for testing, should be ignored
 var EventTest = "test.event" // used for testing
 
-// emitted by the easystore service
-var EventObjectCreate = "object.create"     // object created
-var EventObjectUpdate = "object.update"     // object updated
-var EventObjectDelete = "object.delete"     // object deleted
-var EventMetadataUpdate = "metadata.update" // metadata updated
-var EventFileCreate = "file.create"         // file created
-var EventFileUpdate = "file.update"         // file updated
-var EventFileDelete = "file.delete"         // file deleted
-
+// UvaBusEvent -- abstract event type
 type UvaBusEvent interface {
 	Type() string               // the type of event
 	Serialize() ([]byte, error) // event serialize
 }
 
+// UvaBus -- abstract event bus
 type UvaBus interface {
 	PublishEvent(UvaBusEvent) error // publish the specified event
 }
