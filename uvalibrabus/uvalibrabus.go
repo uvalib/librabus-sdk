@@ -15,21 +15,29 @@ var ErrConfig = fmt.Errorf("configuration error")
 var ErrEventSerialize = fmt.Errorf("serialize error")
 var ErrEventPublish = fmt.Errorf("publish error")
 
-// event names
-var EventTest = "test.event"                // used for testing
-var EventObjectCreate = "object.create"     // new object created, typically from easystore
-var EventObjectDelete = "object.create"     // object deleted, typically from easystore
-var EventMetadataUpdate = "metadata.update" // metadata updated, typically from easystore
-var EventFileUpdate = "file.update"         // file updated, typically from easystore
+//
+// event names and supporting schema
+//
+
+// used for testing, should be ignored
+var EventTest = "test.event" // used for testing
+
+// emitted by the easystore service
+var EventObjectCreate = "object.create"     // object created
+var EventObjectUpdate = "object.update"     // object updated
+var EventObjectDelete = "object.delete"     // object deleted
+var EventMetadataUpdate = "metadata.update" // metadata updated
+var EventFileCreate = "file.create"         // file created
+var EventFileUpdate = "file.update"         // file updated
+var EventFileDelete = "file.delete"         // file deleted
 
 type UvaBusEvent interface {
-	GetEventId() string    // some sort of opaque event identifier
-	GetNamespace() string  // object namespace
-	GetIdentifier() string // object identifier
+	Type() string               // the type of event
+	Serialize() ([]byte, error) // event serialize
 }
 
 type UvaBus interface {
-	PublishBusEvent(string, UvaBusEvent) error // publish the specified event
+	PublishBusEvent(UvaBusEvent) error // publish the specified event
 }
 
 // UvaBusConfig -- our configuration structure
@@ -43,11 +51,6 @@ type UvaBusConfig struct {
 func NewUvaBus(config UvaBusConfig) (UvaBus, error) {
 	bus, err := newUvaBus(config)
 	return bus, err
-}
-
-// NewUvaBusEvent -- factory for our bus event interface
-func NewUvaBusEvent(namespace string, identifier string) UvaBusEvent {
-	return newUvaBusEvent(namespace, identifier)
 }
 
 //

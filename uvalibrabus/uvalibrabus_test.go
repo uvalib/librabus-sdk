@@ -10,7 +10,6 @@ import (
 
 var sourceName = "testing.unit.automated"
 var goodBusName = "uva-libra-bus-staging"
-var badBusName = "xxx"
 var goodNamespace = "libraopen"
 var goodIdentifier = "xxx"
 
@@ -21,8 +20,9 @@ func TestPublishHappyDay(t *testing.T) {
 		t.Fatalf("expected 'OK' but got '%s'\n", err)
 	}
 
-	ev := NewUvaBusEvent(goodNamespace, goodIdentifier)
-	err = bus.PublishBusEvent(EventTest, ev)
+	// create a new event
+	ev := NewEasystoreEvent(EventTest, goodNamespace, goodIdentifier)
+	err = bus.PublishBusEvent(ev)
 	if err != nil {
 		t.Fatalf("expected 'OK' but got '%s'\n", err)
 	}
