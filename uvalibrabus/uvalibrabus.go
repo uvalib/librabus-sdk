@@ -13,6 +13,7 @@ import (
 var ErrBadParameter = fmt.Errorf("bad parameter")
 var ErrConfig = fmt.Errorf("configuration error")
 var ErrEventSerialize = fmt.Errorf("serialize error")
+var ErrEventDeserialize = fmt.Errorf("deserialize error")
 var ErrEventPublish = fmt.Errorf("publish error")
 
 // UvaBusEvent -- our event bus

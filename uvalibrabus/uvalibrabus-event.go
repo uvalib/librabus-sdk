@@ -22,6 +22,15 @@ func (impl UvaBusEvent) String() string {
 	return fmt.Sprintf("%s/%s/%s", impl.EventName, impl.Namespace, impl.Identifier)
 }
 
+func MakeBusEvent(buf []byte) (*UvaBusEvent, error) {
+	var event UvaBusEvent
+	err := json.Unmarshal(buf, &event)
+	if err != nil {
+		return nil, fmt.Errorf("%q: %w", err, ErrEventDeserialize)
+	}
+	return &event, nil
+}
+
 //
 // end of file
 //

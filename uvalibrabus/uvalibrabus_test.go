@@ -28,6 +28,21 @@ func TestPublishHappyDay(t *testing.T) {
 	}
 }
 
+func TestEventSerialize(t *testing.T) {
+	ev := UvaBusEvent{EventTest, goodNamespace, goodIdentifier}
+	b, err := ev.Serialize()
+	if err != nil {
+		t.Fatalf("expected 'OK' but got '%s'\n", err)
+	}
+	evCopy, err := MakeBusEvent(b)
+	if err != nil {
+		t.Fatalf("expected 'OK' but got '%s'\n", err)
+	}
+	if ev.String() != evCopy.String() {
+		t.Fatalf("expected '%s' but got '%s'\n", ev.String(), evCopy.String())
+	}
+}
+
 //
 // end of file
 //
