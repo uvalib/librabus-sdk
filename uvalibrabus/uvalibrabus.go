@@ -22,6 +22,7 @@ var EventTest = "test.event" // used for testing
 type UvaBusEvent interface {
 	Type() string               // the type of event
 	Serialize() ([]byte, error) // event serialize
+	String() string             // pretty print
 }
 
 // UvaBus -- abstract event bus
