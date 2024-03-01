@@ -15,14 +15,13 @@ var ErrConfig = fmt.Errorf("configuration error")
 var ErrEventSerialize = fmt.Errorf("serialize error")
 var ErrEventPublish = fmt.Errorf("publish error")
 
-// used for testing, should be ignored
-var EventTest = "test.event" // used for testing
+// UvaBusEvent -- our event bus
+type UvaBusEvent struct {
+	EventName  string `json:"name"`       // event name
+	Namespace  string `json:"namespace"`  // namespace
+	Identifier string `json:"identifier"` // identifier
 
-// UvaBusEvent -- abstract event type
-type UvaBusEvent interface {
-	Type() string               // the type of event
-	Serialize() ([]byte, error) // event serialize
-	String() string             // pretty print
+	// other stuff
 }
 
 // UvaBus -- abstract event bus

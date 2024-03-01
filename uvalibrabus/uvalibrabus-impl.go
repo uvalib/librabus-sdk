@@ -49,10 +49,10 @@ func newUvaBus(busConfig UvaBusConfig) (UvaBus, error) {
 func (impl uvaBusImpl) PublishEvent(event UvaBusEvent) error {
 
 	// validate inbound parameters
-	if len(event.Type()) == 0 {
-		return fmt.Errorf("%q: %w", "event type is blank", ErrBadParameter)
+	if len(event.EventName) == 0 {
+		return fmt.Errorf("%q: %w", "event name is blank", ErrBadParameter)
 	}
-	impl.logInfo(fmt.Sprintf("publish event [%s]", event.Type()))
+	impl.logInfo(fmt.Sprintf("publish event [%s]", event.String()))
 
 	// serialize the event object
 	buf, err := event.Serialize()
@@ -68,7 +68,7 @@ func (impl uvaBusImpl) PublishEvent(event UvaBusEvent) error {
 					EventBusName: aws.String(impl.config.BusName),
 					Source:       aws.String(impl.config.Source),
 
-					DetailType: aws.String(event.Type()),
+					DetailType: aws.String(event.EventName),
 					Detail:     aws.String(string(buf)),
 				},
 			},

@@ -21,7 +21,7 @@ func TestPublishHappyDay(t *testing.T) {
 	}
 
 	// create a new event
-	ev := NewEasystoreEvent(EventTest, goodNamespace, goodIdentifier)
+	ev := UvaBusEvent{EventTest, goodNamespace, goodIdentifier}
 	err = bus.PublishEvent(ev)
 	if err != nil {
 		t.Fatalf("expected 'OK' but got '%s'\n", err)
