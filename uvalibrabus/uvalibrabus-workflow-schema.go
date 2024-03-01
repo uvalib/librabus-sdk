@@ -35,6 +35,10 @@ func (impl uvaWorkflowEvent) Type() string {
 	return impl.theType
 }
 
+func (impl uvaWorkflowEvent) String() string {
+	return fmt.Sprintf("%s/%s/%s", impl.theType, impl.Namespace, impl.Identifier)
+}
+
 // NewWorkflowEvent -- factory for our workflow events
 func NewWorkflowEvent(eventType string, namespace string, identifier string) UvaBusEvent {
 	return uvaWorkflowEvent{eventType, namespace, identifier}

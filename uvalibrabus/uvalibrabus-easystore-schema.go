@@ -38,6 +38,10 @@ func (impl uvaEasystoreEvent) Type() string {
 	return impl.theType
 }
 
+func (impl uvaEasystoreEvent) String() string {
+	return fmt.Sprintf("%s/%s/%s", impl.theType, impl.Namespace, impl.Identifier)
+}
+
 // NewEasystoreEvent -- factory for our easystore events
 func NewEasystoreEvent(eventType string, namespace string, identifier string) UvaBusEvent {
 	return uvaEasystoreEvent{eventType, namespace, identifier}
