@@ -11,17 +11,26 @@ import (
 var sourceName = "testing.unit.automated"
 var goodBusName = "uva-libra-bus-staging"
 var goodNamespace = "libraopen"
-var goodIdentifier = "xxx"
+var goodIdentifier = "oid:xx-example-xx"
+var goodVTag = "vtag:xx-example-xx"
 
 func TestPublishHappyDay(t *testing.T) {
-	cfg := UvaBusConfig{sourceName, goodBusName, nil}
+	cfg := UvaBusConfig{
+		Source:  sourceName,
+		BusName: goodBusName,
+		Log:     nil}
 	bus, err := NewUvaBus(cfg)
 	if err != nil {
 		t.Fatalf("expected 'OK' but got '%s'\n", err)
 	}
 
 	// create a new event
-	ev := UvaBusEvent{EventTest, goodNamespace, goodIdentifier}
+	ev := UvaBusEvent{
+		EventName:  EventTest,
+		Namespace:  goodNamespace,
+		Identifier: goodIdentifier,
+		VTag:       goodVTag,
+	}
 	err = bus.PublishEvent(ev)
 	if err != nil {
 		t.Fatalf("expected 'OK' but got '%s'\n", err)
@@ -29,7 +38,15 @@ func TestPublishHappyDay(t *testing.T) {
 }
 
 func TestEventSerialize(t *testing.T) {
-	ev := UvaBusEvent{EventTest, goodNamespace, goodIdentifier}
+
+	// create a new event
+	ev := UvaBusEvent{
+		EventName:  EventTest,
+		Namespace:  goodNamespace,
+		Identifier: goodIdentifier,
+		VTag:       goodVTag,
+	}
+
 	b, err := ev.Serialize()
 	if err != nil {
 		t.Fatalf("expected 'OK' but got '%s'\n", err)

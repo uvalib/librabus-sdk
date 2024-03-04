@@ -21,6 +21,7 @@ type UvaBusEvent struct {
 	EventName  string `json:"name"`       // event name
 	Namespace  string `json:"namespace"`  // namespace
 	Identifier string `json:"identifier"` // identifier
+	VTag       string `json:"vtag"`       // identifier
 
 	// other stuff
 }
