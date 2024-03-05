@@ -4,6 +4,11 @@
 
 package uvalibrabus
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 //
 // event names
 //
@@ -18,6 +23,20 @@ var EventWorkUnpublish = "workflow.work.unpublish" // work unpublished
 //
 
 type UvaWorkflowEvent struct {
+}
+
+// standard behavior
+func (impl UvaWorkflowEvent) String() string {
+	return fmt.Sprintf("<%s>", "bla")
+}
+
+func (impl UvaWorkflowEvent) Serialize() ([]byte, error) {
+	// serialize the event object
+	buf, err := json.Marshal(impl)
+	if err != nil {
+		return nil, fmt.Errorf("%q: %w", err, ErrEventSerialize)
+	}
+	return buf, nil
 }
 
 //

@@ -4,6 +4,11 @@
 
 package uvalibrabus
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 //
 // event names
 //
@@ -22,6 +27,20 @@ var EventFileDelete = "storage.file.delete"         // file deleted
 
 type UvaStorageEvent struct {
 	VTag string `json:"vtag"` // object vtag
+}
+
+// standard behavior
+func (impl UvaStorageEvent) String() string {
+	return fmt.Sprintf("<%s>", impl.VTag)
+}
+
+func (impl UvaStorageEvent) Serialize() ([]byte, error) {
+	// serialize the event object
+	buf, err := json.Marshal(impl)
+	if err != nil {
+		return nil, fmt.Errorf("%q: %w", err, ErrEventSerialize)
+	}
+	return buf, nil
 }
 
 //
