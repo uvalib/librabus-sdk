@@ -18,14 +18,12 @@ func main() {
 	var logger *log.Logger
 	var namespace string
 	var oid string
-	var vtag string
 
 	flag.StringVar(&eventBus, "bus", "", "Event bus name")
 	flag.StringVar(&eventSource, "source", "", "Event source name")
 	flag.StringVar(&eventName, "event", "", "The name of the event")
 	flag.StringVar(&namespace, "ns", "", "The event namespace")
 	flag.StringVar(&oid, "oid", "", "The event object identifier")
-	flag.StringVar(&vtag, "vtag", "none", "The event object vtag (some events)")
 	flag.BoolVar(&debug, "debug", false, "Log debug information")
 	flag.Parse()
 
@@ -38,8 +36,7 @@ func main() {
 		len(eventSource) == 0 ||
 		len(eventName) == 0 ||
 		len(namespace) == 0 ||
-		len(oid) == 0 ||
-		len(vtag) == 0 {
+		len(oid) == 0 {
 		flag.PrintDefaults()
 		os.Exit(1)
 	}
@@ -53,21 +50,20 @@ func main() {
 	if err != nil {
 		log.Fatalf("ERROR: creating event bus client (%s)", err.Error())
 	}
-	fmt.Printf("Using %s@%s\n", eventSource, eventBus)
+	fmt.Printf("Using: %s@%s\n", eventSource, eventBus)
 
 	// for now, just 1 event type
 	ev := uvalibrabus.UvaBusEvent{
 		EventName:  eventName,
 		Namespace:  namespace,
 		Identifier: oid,
-		VTag:       vtag,
 	}
 	err = bus.PublishEvent(ev)
 	if err != nil {
 		log.Fatalf("ERROR: publishing event (%s)", err.Error())
 	}
 
-	fmt.Printf("Published [%s]\n", ev.String())
+	fmt.Printf("Published: %s\n", ev.String())
 	fmt.Printf("Terminating normally\n")
 }
 

@@ -36,3 +36,5 @@ github.com/uvalib/librabus-sdk/uvalibrabus v0.0.0-20240301155757-b9affb025ae2 h1
 github.com/uvalib/librabus-sdk/uvalibrabus v0.0.0-20240301155757-b9affb025ae2/go.mod h1:3zlSCNudbHP3Lj7BGfTju+2uSlWnDQ2uuLJev/ku8tg=
 github.com/uvalib/librabus-sdk/uvalibrabus v0.0.0-20240304192251-e7218d8ce7e3 h1:AobRHV/SbbMy2mFmtQ+JRvkDyMenHr8I4CG8pUbSU2w=
 github.com/uvalib/librabus-sdk/uvalibrabus v0.0.0-20240304192251-e7218d8ce7e3/go.mod h1:3zlSCNudbHP3Lj7BGfTju+2uSlWnDQ2uuLJev/ku8tg=
+github.com/uvalib/librabus-sdk/uvalibrabus v0.0.0-20240305112138-00d36b23ab20 h1:GGEAdbauKKPUQaljQ8cI//EK2KEUAgQ4X+PxSqeND/Y=
+github.com/uvalib/librabus-sdk/uvalibrabus v0.0.0-20240305112138-00d36b23ab20/go.mod h1:3zlSCNudbHP3Lj7BGfTju+2uSlWnDQ2uuLJev/ku8tg=

@@ -2,7 +2,7 @@ module github.com/uvalib/librabus-pub
 
 go 1.21.7
 
-require github.com/uvalib/librabus-sdk/uvalibrabus v0.0.0-20240304192251-e7218d8ce7e3
+require github.com/uvalib/librabus-sdk/uvalibrabus v0.0.0-20240305112138-00d36b23ab20
 
 require (
 	github.com/aws/aws-sdk-go-v2 v1.25.2 // indirect
