@@ -12,7 +12,8 @@ var sourceName = "testing.unit.automated"
 var goodBusName = "uva-libra-bus-staging"
 var goodNamespace = "libraopen"
 var goodIdentifier = "oid:xx-example-xx"
-var goodVTag = "vtag:xx-example-xx"
+
+//var goodVTag = "vtag:xx-example-xx"
 
 func TestPublishHappyDay(t *testing.T) {
 	cfg := UvaBusConfig{
@@ -29,7 +30,6 @@ func TestPublishHappyDay(t *testing.T) {
 		EventName:  EventTest,
 		Namespace:  goodNamespace,
 		Identifier: goodIdentifier,
-		VTag:       goodVTag,
 	}
 	err = bus.PublishEvent(ev)
 	if err != nil {
@@ -44,7 +44,6 @@ func TestEventSerialize(t *testing.T) {
 		EventName:  EventTest,
 		Namespace:  goodNamespace,
 		Identifier: goodIdentifier,
-		VTag:       goodVTag,
 	}
 
 	b, err := ev.Serialize()
