@@ -27,7 +27,7 @@ type UvaWorkflowEvent struct {
 
 // standard behavior
 func (impl UvaWorkflowEvent) String() string {
-	return fmt.Sprintf("<%s>", "bla")
+	return "<none>"
 }
 
 func (impl UvaWorkflowEvent) Serialize() ([]byte, error) {
