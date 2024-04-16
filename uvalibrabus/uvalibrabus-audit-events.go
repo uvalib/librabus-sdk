@@ -41,6 +41,15 @@ func (impl UvaAuditEvent) Serialize() ([]byte, error) {
 	return buf, nil
 }
 
+func MakeAuditEvent(buf []byte) (*UvaAuditEvent, error) {
+	var event UvaAuditEvent
+	err := json.Unmarshal(buf, &event)
+	if err != nil {
+		return nil, fmt.Errorf("%q: %w", err, ErrEventDeserialize)
+	}
+	return &event, nil
+}
+
 //
 // end of file
 //

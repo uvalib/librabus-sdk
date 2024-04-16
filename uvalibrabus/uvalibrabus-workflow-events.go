@@ -39,6 +39,15 @@ func (impl UvaWorkflowEvent) Serialize() ([]byte, error) {
 	return buf, nil
 }
 
+func MakeWorkflowEvent(buf []byte) (*UvaWorkflowEvent, error) {
+	var event UvaWorkflowEvent
+	err := json.Unmarshal(buf, &event)
+	if err != nil {
+		return nil, fmt.Errorf("%q: %w", err, ErrEventDeserialize)
+	}
+	return &event, nil
+}
+
 //
 // end of file
 //

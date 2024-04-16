@@ -43,6 +43,15 @@ func (impl UvaStorageEvent) Serialize() ([]byte, error) {
 	return buf, nil
 }
 
+func MakeStorageEvent(buf []byte) (*UvaStorageEvent, error) {
+	var event UvaStorageEvent
+	err := json.Unmarshal(buf, &event)
+	if err != nil {
+		return nil, fmt.Errorf("%q: %w", err, ErrEventDeserialize)
+	}
+	return &event, nil
+}
+
 //
 // end of file
 //

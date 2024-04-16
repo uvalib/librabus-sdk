@@ -9,6 +9,10 @@ import (
 	"fmt"
 )
 
+func (impl UvaBusEvent) String() string {
+	return fmt.Sprintf("<%s/%s/%s>", impl.EventName, impl.Namespace, impl.Identifier)
+}
+
 func (impl UvaBusEvent) Serialize() ([]byte, error) {
 	// serialize the event object
 	buf, err := json.Marshal(impl)
@@ -16,10 +20,6 @@ func (impl UvaBusEvent) Serialize() ([]byte, error) {
 		return nil, fmt.Errorf("%q: %w", err, ErrEventSerialize)
 	}
 	return buf, nil
-}
-
-func (impl UvaBusEvent) String() string {
-	return fmt.Sprintf("<%s/%s/%s>", impl.EventName, impl.Namespace, impl.Identifier)
 }
 
 func MakeBusEvent(buf []byte) (*UvaBusEvent, error) {
