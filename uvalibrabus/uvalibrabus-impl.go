@@ -57,7 +57,7 @@ func (impl uvaBusImpl) PublishEvent(event UvaBusEvent) error {
 	// serialize the event object
 	buf, err := event.Serialize()
 	if err != nil {
-		return fmt.Errorf("%q: %w", err, ErrEventSerialize)
+		return err
 	}
 
 	// publish it
