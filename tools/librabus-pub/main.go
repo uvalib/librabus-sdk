@@ -61,6 +61,7 @@ func main() {
 	}
 	fmt.Printf("Using: %s@%s\n", eventSource, eventBus)
 
+	count := 0
 	if len(bulk) != 0 {
 
 		var bytesRead []byte
@@ -71,6 +72,7 @@ func main() {
 				attrs := strings.Split(line, "/")
 				if len(attrs) == 3 {
 					err = publishEvent(bus, attrs[0], attrs[1], attrs[2])
+					count++
 					if err != nil {
 						break
 					}
@@ -83,13 +85,14 @@ func main() {
 		}
 	} else {
 		err = publishEvent(bus, eventName, namespace, oid)
+		count++
 	}
 
 	if err != nil {
 		fmt.Printf("Terminating with error (%s)\n", err.Error())
 		os.Exit(1)
 	} else {
-		fmt.Printf("Terminating normally\n")
+		fmt.Printf("Terminating normally, %d event(s) published\n", count)
 	}
 }
 
