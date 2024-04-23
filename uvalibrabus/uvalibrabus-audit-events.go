@@ -24,6 +24,7 @@ type UvaAuditEvent struct {
 	FieldName string `json:"fieldName"` // name of the field that was updated
 	Before    string `json:"before"`    // value before the update
 	After     string `json:"after"`     // value after the update
+	When      string `json:"when"`      // when the update occurred
 }
 
 // standard behavior
