@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/service/cloudwatchevents/types"
 	"log"
+	"time"
 
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/cloudwatchevents"
@@ -52,6 +53,12 @@ func (impl uvaBusImpl) PublishEvent(event UvaBusEvent) error {
 	if len(event.EventName) == 0 {
 		return fmt.Errorf("%q: %w", "event name is blank", ErrBadParameter)
 	}
+
+	// we will accept a supplied time but add our own if one is missing
+	if len(event.EventTime) == 0 {
+		event.EventTime = time.Now().Format(time.RFC3339)
+	}
+
 	impl.logInfo(fmt.Sprintf("publish event [%s]", event.String()))
 
 	// serialize the event object

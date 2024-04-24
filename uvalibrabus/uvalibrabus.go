@@ -25,6 +25,7 @@ type UvaBusEvent struct {
 	EventName  string          `json:"name"`       // event name
 	Namespace  string          `json:"namespace"`  // namespace
 	Identifier string          `json:"identifier"` // identifier
+	EventTime  string          `json:"event_time"` // event time
 	Detail     json.RawMessage // remainder of the schema is event specific
 
 	// other stuff
