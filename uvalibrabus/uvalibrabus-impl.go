@@ -47,7 +47,7 @@ func newUvaBus(busConfig UvaBusConfig) (UvaBus, error) {
 	return &impl, nil
 }
 
-func (impl uvaBusImpl) PublishEvent(event UvaBusEvent) error {
+func (impl uvaBusImpl) PublishEvent(event *UvaBusEvent) error {
 
 	// validate inbound parameters
 	if len(event.EventName) == 0 {
@@ -56,7 +56,7 @@ func (impl uvaBusImpl) PublishEvent(event UvaBusEvent) error {
 
 	// we will accept a supplied time but add our own if one is missing
 	if len(event.EventTime) == 0 {
-		event.EventTime = time.Now().Format(time.RFC3339)
+		event.EventTime = time.Now().UTC().Format(time.RFC3339)
 	}
 
 	impl.logInfo(fmt.Sprintf("publish event [%s]", event.String()))

@@ -33,7 +33,7 @@ type UvaBusEvent struct {
 
 // UvaBus -- abstract event bus
 type UvaBus interface {
-	PublishEvent(UvaBusEvent) error // publish the specified event
+	PublishEvent(*UvaBusEvent) error // publish the specified event
 }
 
 // UvaBusConfig -- our configuration structure

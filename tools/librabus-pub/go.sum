@@ -26,5 +26,7 @@ github.com/aws/aws-sdk-go-v2/service/sts v1.28.6 h1:cwIxeBttqPN3qkaAjcEcsh8NYr8n
 github.com/aws/aws-sdk-go-v2/service/sts v1.28.6/go.mod h1:FZf1/nKNEkHdGGJP/cI2MoIMquumuRK6ol3QQJNDxmw=
 github.com/aws/smithy-go v1.20.2 h1:tbp628ireGtzcHDDmLT/6ADHidqnwgF57XOXZe6tp4Q=
 github.com/aws/smithy-go v1.20.2/go.mod h1:krry+ya/rV9RDcV/Q16kpu6ypI4K2czasz0NC3qS14E=
-github.com/uvalib/librabus-sdk/uvalibrabus v0.0.0-20240416182004-3ad91346ed46 h1:mKERZh2GdID/8n3DUMpsRcBXxisUQCDKhSnKGAbKD84=
-github.com/uvalib/librabus-sdk/uvalibrabus v0.0.0-20240416182004-3ad91346ed46/go.mod h1:3zlSCNudbHP3Lj7BGfTju+2uSlWnDQ2uuLJev/ku8tg=
+github.com/uvalib/librabus-sdk/uvalibrabus v0.0.0-20240423190129-1dd87ee1c995 h1:DF/BcejTiGG+E0yhi7DRO2Y8ZsLbEpRKpRo6cNrtDMw=
+github.com/uvalib/librabus-sdk/uvalibrabus v0.0.0-20240423190129-1dd87ee1c995/go.mod h1:3zlSCNudbHP3Lj7BGfTju+2uSlWnDQ2uuLJev/ku8tg=
+github.com/uvalib/librabus-sdk/uvalibrabus v0.0.0-20240424180630-9e8d90c994ce h1:RZL2G6ywBvEV7/3kIGh4TibHhwCHGN/nvJVhc88oYS8=
+github.com/uvalib/librabus-sdk/uvalibrabus v0.0.0-20240424180630-9e8d90c994ce/go.mod h1:3zlSCNudbHP3Lj7BGfTju+2uSlWnDQ2uuLJev/ku8tg=

@@ -31,7 +31,7 @@ func TestPublishHappyDay(t *testing.T) {
 		Namespace:  goodNamespace,
 		Identifier: goodIdentifier,
 	}
-	err = bus.PublishEvent(ev)
+	err = bus.PublishEvent(&ev)
 	if err != nil {
 		t.Fatalf("expected 'OK' but got '%s'\n", err)
 	}
