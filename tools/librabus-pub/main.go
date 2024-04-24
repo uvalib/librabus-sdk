@@ -103,7 +103,7 @@ func publishEvent(bus uvalibrabus.UvaBus, name string, namespace string, oid str
 		Namespace:  namespace,
 		Identifier: oid,
 	}
-	err := bus.PublishEvent(ev)
+	err := bus.PublishEvent(&ev)
 	if err != nil {
 		return fmt.Errorf("publishing event (%s)", err.Error())
 	}
