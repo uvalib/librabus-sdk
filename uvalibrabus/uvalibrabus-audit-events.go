@@ -13,7 +13,7 @@ import (
 // event names
 //
 
-var EventFieldUpdate = "audit.field.update" // object created
+var EventFieldUpdate = "audit.field.update" // field updated
 
 //
 // corresponding schema for these events
