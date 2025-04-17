@@ -10,7 +10,7 @@ import (
 
 var sourceName = "testing.unit.automated"
 var goodBusName = "uva-libra-bus-staging"
-var goodNamespace = "libraopen"
+var goodNamespace = "libraetd"
 var goodIdentifier = "oid:xx-example-xx"
 
 //var goodVTag = "vtag:xx-example-xx"
