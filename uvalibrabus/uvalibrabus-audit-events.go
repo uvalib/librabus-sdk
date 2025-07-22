@@ -28,7 +28,7 @@ type UvaAuditEvent struct {
 
 // standard behavior
 func (impl UvaAuditEvent) String() string {
-	return fmt.Sprintf("<%s/%s/%s/%s>",
+	return fmt.Sprintf("<%s|%s|%s|%s>",
 		impl.Who, impl.FieldName, impl.Before, impl.After)
 }
 
