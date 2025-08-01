@@ -21,6 +21,7 @@ var EventContentDownload = "content.object.download" // download event
 //
 
 type UvaContentEvent struct {
+	TargetId       string `json:"target-id"`       // the content event target id
 	SourceIp       string `json:"source-ip"`       // source ip address
 	Referrer       string `json:"referrer"`        // referrer url
 	UserAgent      string `json:"user-agent"`      // user agent
@@ -29,8 +30,8 @@ type UvaContentEvent struct {
 
 // standard behavior
 func (impl UvaContentEvent) String() string {
-	return fmt.Sprintf("<%s|%s|%s|%s>",
-		impl.SourceIp, impl.Referrer, impl.UserAgent, impl.AcceptLanguage)
+	return fmt.Sprintf("<%s|%s|%s|%s|%s>",
+		impl.TargetId, impl.SourceIp, impl.Referrer, impl.UserAgent, impl.AcceptLanguage)
 }
 
 func (impl UvaContentEvent) Serialize() ([]byte, error) {
