@@ -15,6 +15,7 @@ var EventCommandOrcidSync = "command.work.orcidsync"   // command to ORCID resyn
 var EventCommandMailInvite = "command.mail.invitation" // command to mail invitation
 var EventCommandMailSuccess = "command.mail.success"   // command to mail success
 var EventCommandSisNotify = "command.sis.notify"       // command to notify SIS
+var EventCommandAPTrust = "command.work.aptrust"       // command to send to APTrust
 
 //
 // end of file
